@@ -11,6 +11,7 @@
 credentials_user_oauth2 <- function(scopes,
                                     app = gargle_app(),
                                     ...) {
+  message("trying credentials_user_oauth2")
   token <- httr::oauth2.0_token(
     endpoint = httr::oauth_endpoints("google"),
     app = app,
