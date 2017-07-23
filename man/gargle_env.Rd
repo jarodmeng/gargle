@@ -19,7 +19,8 @@ to fetch credentials.
 delivered upon request via \code{token_deliver()}.
 \item \code{$token} The most recently fetched token. If none has been fetched, value
 is \code{NULL}.
-\item \code{$method} The name of the credential function that produced the token.
+\item \code{$method} The name of the credential function that produced the token. If
+none has been used, value if \code{NA_character_}.
 }
 }
 }

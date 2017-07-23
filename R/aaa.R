@@ -9,7 +9,8 @@
 #'     delivered upon request via `token_deliver()`.
 #'   - `$token` The most recently fetched token. If none has been fetched, value
 #'     is `NULL`.
-#'   - `$method` The name of the credential function that produced the token.
+#'   - `$method` The name of the credential function that produced the token. If
+#'     none has been used, value if `NA_character_`.
 #'
 #' @format An environment.
 #' @keywords internal

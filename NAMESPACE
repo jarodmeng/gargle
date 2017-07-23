@@ -3,7 +3,7 @@
 export(GceToken)
 export(auth_activate)
 export(auth_deactivate)
-export(auth_status)
+export(auth_state)
 export(cred_funs_add)
 export(cred_funs_clear)
 export(cred_funs_list)

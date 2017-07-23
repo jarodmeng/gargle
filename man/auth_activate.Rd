@@ -3,17 +3,22 @@
 \name{auth_activate}
 \alias{auth_activate}
 \alias{auth_deactivate}
-\alias{auth_status}
+\alias{auth_state}
 \title{Activate / de-activate auth}
 \usage{
-auth_activate()
+auth_activate(verbose = TRUE)
 
-auth_deactivate(clear = FALSE)
+auth_deactivate(clear = FALSE, verbose = TRUE)
 
-auth_status()
+auth_state(verbose = TRUE)
+}
+\arguments{
+\item{verbose}{verbosity!}
+
+\item{clear}{Logical, whether to clear the cached token}
 }
 \value{
-the auth state, invisible
+the auth state, invisibly
 }
 \description{
 Activate / de-activate auth
