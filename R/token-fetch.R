@@ -26,6 +26,21 @@ token_fetch <- function(scopes, ...) {
   NULL
 }
 
+#' Hand over a token
+#'
+#' Coughs up a token. From gargle's cache, if possible. Fetches new one if
+#' necessary. Returns `NULL` if auth is inactive.
+#'
+#' @param scopes scopes!
+#' @param ... dots!
+#'
+#' @return things!
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' token_deliver()
+#' }
 token_deliver <- function(scopes = "https://www.googleapis.com/auth/drive",
                           ...) {
   if (gargle_env$auth$active) {

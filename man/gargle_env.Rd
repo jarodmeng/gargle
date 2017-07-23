@@ -11,8 +11,16 @@ gargle_env
 \description{
 This environment contains:
 \itemize{
-\item \code{$cred_funs} is the ordered list of credential methods to use when trying
+\item \code{$cred_funs}: an ordered list of credential methods to use when trying
 to fetch credentials.
+\item \code{$auth}: a list that records current auth state:
+\itemize{
+\item \code{$active} Logical, indicates whether a token or \code{NULL} should be
+delivered upon request via \code{token_deliver()}.
+\item \code{$token} The most recently fetched token. If none has been fetched, value
+is \code{NULL}.
+\item \code{$method} The name of the credential function that produced the token.
+}
 }
 }
 \keyword{internal}

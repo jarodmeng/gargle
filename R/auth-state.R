@@ -1,9 +1,15 @@
 
+#' Activate / de-activate auth
+#'
+#' @return the auth state, invisible
+#' @export
 auth_activate <- function() {
   gargle_env$auth$active <- TRUE
   auth_status()
 }
 
+#' @rdname auth_activate
+#' @export
 auth_deactivate <- function(clear = FALSE) {
   gargle_env$auth$active <- FALSE
   if (clear) {
@@ -18,12 +24,14 @@ auth_deactivate <- function(clear = FALSE) {
   auth_status()
 }
 
+#' @rdname auth_activate
+#' @export
 auth_status <- function() {
   cat("auth: ",
       if (gargle_env$auth$active) "ACTIVE" else "INACTIVE", "\n",
       "token state: ",
       if (is.null(gargle_env$auth$token)) "NULL" else "CACHED", "\n",
-      "last credential method: ", gargle_env$auth$method,
+      "last credential method: ", gargle_env$auth$method, "\n",
       sep = ""
   )
   invisible(gargle_env$auth)
