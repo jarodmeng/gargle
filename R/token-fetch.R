@@ -50,3 +50,34 @@ token_deliver <- function(scopes = "https://www.googleapis.com/auth/drive",
   }
 }
 
+#' Ingest a token
+#'
+#' @param token Path to an `.rds` file containing a token or an actual token.
+#'
+#' @return logical
+#' @export
+token_ingest <- function(token) {
+  orig_token <- token
+  if (inherits(token, "character")) {
+    token <- tryCatch(
+      suppressWarnings(readRDS(token)),
+      error = function(e) {
+        msg <- sprintf(
+          "Cannot read token from alleged .rds file:\n  * %s", orig_token
+        )
+        stop(msg, call. = FALSE)
+      }
+    )
+  }
+  if (!inherits(token, "Token2.0")) {
+    stop(
+      paste0(
+        "Input provided via 'token' is neither a token,\n",
+        "nor a path to an .rds file containing a token."
+      )
+    )
+  }
+  gargle_env$auth$token <- token
+  gargle_env$auth$method <- "ingest"
+  invisible(TRUE)
+}
