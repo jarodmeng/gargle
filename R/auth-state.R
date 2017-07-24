@@ -22,7 +22,7 @@ auth_deactivate <- function(clear = FALSE, verbose = TRUE) {
       message("TO DO: should deactivate cache file right here")
     }
     gargle_env$auth$token <- NULL
-    gargle_env$auth$method <- NULL
+    gargle_env$auth$method <- NA_character_
   }
   auth_state(verbose)
 }
