@@ -12,6 +12,7 @@
 #'   - `$method` The name of the credential function that produced the token. If
 #'     none has been used, value if `NA_character_`.
 #'
+#' @noRd
 #' @format An environment.
 #' @keywords internal
 gargle_env <- new.env(parent = emptyenv())
